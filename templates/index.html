@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zestro | Futuristic Mediterranean Luxury</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">ZESTRO</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#location" class="nav-link">Visit</a></li>
+            </ul>
+            <div class="nav-cta">
+                <button class="btn-primary glow-pulse">Book a Table</button>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-bg-particles" id="particles-js"></div>
+            <div class="hero-content">
+                <h1 class="hero-title reveal-text">Mediterranean <br> <span class="accent">Reimagined</span></h1>
+                <p class="hero-subtitle reveal-text">Experience the future of fine dining where AI meets ancient culinary traditions.</p>
+                <div class="hero-btns">
+                    <button class="btn-primary magnetic">Explore Menu</button>
+                    <button class="btn-secondary magnetic">Watch Story</button>
+                </div>
+            </div>
+
+            <!-- Floating Food Cards -->
+            <div class="floating-elements">
+                <div class="food-card float-1">
+                    <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?q=80&w=300&h=300&auto=format&fit=crop" alt="Dish 1">
+                    <div class="card-glass">
+                        <h3>Truffle Hummus</h3>
+                        <p>Infused with white truffle oil</p>
+                    </div>
+                </div>
+                <div class="food-card float-2">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=300&h=300&auto=format&fit=crop" alt="Dish 2">
+                    <div class="card-glass">
+                        <h3>Azure Sea Bass</h3>
+                        <p>Sous-vide with bioluminescent herbs</p>
+                    </div>
+                </div>
+                <div class="chef-special float-3">
+                    <div class="special-badge">Chef's Choice</div>
+                    <img src="https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?q=80&w=400&h=400&auto=format&fit=crop" alt="Chef Special">
+                    <div class="card-glass">
+                        <h3>Saffron Risotto</h3>
+                        <p>24k Gold leaf garnish</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Section -->
+        <section id="ai-assistant" class="ai-section">
+            <div class="section-container">
+                <div class="ai-visual">
+                    <div class="hologram-orb"></div>
+                    <div class="ai-ui-overlay">
+                        <div class="chat-bubble left">Analyzing flavor profiles...</div>
+                        <div class="chat-bubble right">Suggesting wine pairing.</div>
+                        <div class="chat-bubble left">Optimal temperature reached.</div>
+                    </div>
+                </div>
+                <div class="ai-text">
+                    <h2 class="reveal-text">Your Personal <span class="accent">AI Sommelier</span></h2>
+                    <p>Our advanced AI assistant learns your palate to suggest the perfect pairing from our cellar of 5,000 vintage labels.</p>
+                    <ul class="ai-features">
+                        <li><i data-lucide="zap"></i> Real-time preference mapping</li>
+                        <li><i data-lucide="cpu"></i> Smart nutritional analysis</li>
+                        <li><i data-lucide="sparkles"></i> Personalized tasting menus</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="menu-section">
+            <div class="section-header">
+                <h2 class="reveal-text">Our Digital <span class="accent">Cuisine</span></h2>
+                <div class="menu-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="starters">Starters</button>
+                    <button class="filter-btn" data-filter="mains">Mains</button>
+                    <button class="filter-btn" data-filter="desserts">Desserts</button>
+                </div>
+            </div>
+            <div class="menu-grid">
+                <!-- Sample Menu Item -->
+                <div class="menu-item starter tilt" data-category="starters">
+                    <div class="item-img">
+                        <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?q=80&w=500&h=500&auto=format&fit=crop" alt="Item">
+                    </div>
+                    <div class="item-info">
+                        <h3>Cyber Calamari</h3>
+                        <p>Crispy calamari with neon-infused aioli</p>
+                        <span class="price">$24</span>
+                    </div>
+                </div>
+                <div class="menu-item main tilt" data-category="mains">
+                    <div class="item-img">
+                        <img src="https://images.unsplash.com/photo-1621161271131-48e029c29804?q=80&w=500&h=500&auto=format&fit=crop" alt="Item">
+                    </div>
+                    <div class="item-info">
+                        <h3>Quantum Lamb</h3>
+                        <p>Slow-cooked lamb with molecular mint gel</p>
+                        <span class="price">$58</span>
+                    </div>
+                </div>
+                <div class="menu-item dessert tilt" data-category="desserts">
+                    <div class="item-img">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=500&h=500&auto=format&fit=crop" alt="Item">
+                    </div>
+                    <div class="item-info">
+                        <h3>Nebula Mousse</h3>
+                        <p>Dark chocolate with edible stardust</p>
+                        <span class="price">$18</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section">
+            <div class="marquee-container">
+                <div class="marquee-text">
+                    <span>LUXURY • INNOVATION • TASTE • FUTURE • MEDITERRANEAN • </span>
+                    <span>LUXURY • INNOVATION • TASTE • FUTURE • MEDITERRANEAN • </span>
+                </div>
+            </div>
+            <div class="split-layout">
+                <div class="exp-img">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&h=1000&auto=format&fit=crop" alt="Atmosphere">
+                </div>
+                <div class="exp-content">
+                    <h2 class="reveal-text">More Than Just <span class="accent">Dining</span></h2>
+                    <p>Zestro combines multi-sensory projections, spatial audio, and haptic feedback to transport you to the shores of the Mediterranean while you dine in the heart of the future.</p>
+                    <div class="floating-blob"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location" class="location-section">
+            <div class="section-container">
+                <div class="location-card glass">
+                    <h2>Visit Us</h2>
+                    <p><i data-lucide="map-pin"></i> 777 Cyber Heights, Neo-Athens</p>
+                    <p><i data-lucide="clock"></i> 6:00 PM - 2:00 AM</p>
+                    <button class="btn-primary">Get Directions</button>
+                </div>
+                <div class="map-placeholder">
+                    <div class="pulse-indicator"></div>
+                    <div class="map-overlay"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="testimonial-section">
+            <h2 class="reveal-text">What Our <span class="accent">Guests Say</span></h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-card glass">
+                    <div class="stars">★★★★★</div>
+                    <p>"The AI suggested the most incredible wine pairing I've ever had. Truly revolutionary."</p>
+                    <div class="guest">- Elena Vance</div>
+                </div>
+                <div class="testimonial-card glass">
+                    <div class="stars">★★★★★</div>
+                    <p>"A feast for all senses. The holograms were breathtaking and the food was out of this world."</p>
+                    <div class="guest">- Marcus Thorne</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <h2 class="reveal-text">Frequently <span class="accent">Asked</span></h2>
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Do I need a reservation?</h3>
+                        <i data-lucide="plus"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, due to our limited seating and high demand, we recommend booking at least 2 weeks in advance.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>What is the dress code?</h3>
+                        <i data-lucide="plus"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We embrace "Futuristic Chic." Think elegant, modern, and sophisticated.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-particles"></div>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">ZESTRO</span>
+                    <p>The future of Mediterranean luxury.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Private Dining</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Zestro. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle glow-pulse">
+            <i data-lucide="message-square"></i>
+        </button>
+        <div class="chat-panel glass">
+            <div class="chat-header">
+                <div class="ai-status">
+                    <div class="status-dot"></div>
+                    <span>Zestro AI Assistant</span>
+                </div>
+                <button class="chat-close"><i data-lucide="x"></i></button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message ai">
+                    Welcome to Zestro. How may I elevate your culinary journey today?
+                </div>
+            </div>
+            <div class="typing-indicator" id="typing-indicator">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="chat-suggestions">
+                <button class="suggestion-chip">View Menu</button>
+                <button class="suggestion-chip">Book Table</button>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Ask me anything...">
+                <button id="send-btn"><i data-lucide="send"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
