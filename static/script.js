@@ -211,11 +211,13 @@ const sendBtn = document.getElementById('send-btn');
 const typingIndicator = document.getElementById('typing-indicator');
 
 chatbotToggle.addEventListener('click', () => {
-    chatPanel.classList.toggle('active');
+    const isActive = chatPanel.classList.toggle('active');
+    chatbotToggle.setAttribute('aria-expanded', isActive);
 });
 
 chatClose.addEventListener('click', () => {
     chatPanel.classList.remove('active');
+    chatbotToggle.setAttribute('aria-expanded', 'false');
 });
 
 async function sendMessage() {
@@ -326,10 +328,10 @@ const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
 mobileMenuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+    const isOpened = navLinks.classList.toggle('active');
+    mobileMenuToggle.setAttribute('aria-expanded', isOpened);
 
     // Toggle between menu and x icon
-    const isOpened = navLinks.classList.contains('active');
     mobileMenuToggle.innerHTML = isOpened ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
     lucide.createIcons();
 
