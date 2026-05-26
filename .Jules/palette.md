@@ -1,0 +1,3 @@
+## 2026-05-26 - [Interactive Toggle Accessibility]
+**Learning:** Interactive elements that toggle content (like mobile menus and chatbots) should use semantic <button> elements with 'aria-expanded' states and appropriate 'aria-label' attributes. This ensures keyboard and screen reader users can understand and interact with the UI. Focus management (e.g., auto-focusing an input when a panel opens and returning focus when it closes) significantly improves the experience for these users.
+**Action:** Always convert div-based toggles to buttons and implement 'aria-expanded' and focus management for any new interactive panels.
