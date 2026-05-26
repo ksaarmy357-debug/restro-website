@@ -38,9 +38,9 @@
             <div class="nav-cta">
                 <button class="btn-primary glow-pulse">Book a Table</button>
             </div>
-            <div class="mobile-menu-toggle">
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <i data-lucide="menu"></i>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -267,7 +267,7 @@
 
     <!-- Chatbot -->
     <div class="chatbot-container">
-        <button class="chatbot-toggle glow-pulse">
+        <button class="chatbot-toggle glow-pulse" aria-label="Open AI Assistant" aria-expanded="false">
             <i data-lucide="message-square"></i>
         </button>
         <div class="chat-panel glass">
@@ -276,7 +276,7 @@
                     <div class="status-dot"></div>
                     <span>Zestro AI Assistant</span>
                 </div>
-                <button class="chat-close"><i data-lucide="x"></i></button>
+                <button class="chat-close" aria-label="Close AI Assistant"><i data-lucide="x"></i></button>
             </div>
             <div class="chat-messages" id="chat-messages">
                 <div class="message ai">
@@ -291,8 +291,9 @@
                 <button class="suggestion-chip">Book Table</button>
             </div>
             <div class="chat-input">
+                <label for="user-input" class="sr-only">Ask Zestro AI</label>
                 <input type="text" id="user-input" placeholder="Ask me anything...">
-                <button id="send-btn"><i data-lucide="send"></i></button>
+                <button id="send-btn" aria-label="Send message"><i data-lucide="send"></i></button>
             </div>
         </div>
     </div>
