@@ -38,9 +38,9 @@
             <div class="nav-cta">
                 <button class="btn-primary glow-pulse">Book a Table</button>
             </div>
-            <div class="mobile-menu-toggle">
-                <i data-lucide="menu"></i>
-            </div>
+            <button class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false">
+                <i data-lucide="menu" aria-hidden="true"></i>
+            </button>
         </div>
     </nav>
 
@@ -101,9 +101,9 @@
                     <h2 class="reveal-text">Your Personal <span class="accent">AI Sommelier</span></h2>
                     <p>Our advanced AI assistant learns your palate to suggest the perfect pairing from our cellar of 5,000 vintage labels.</p>
                     <ul class="ai-features">
-                        <li><i data-lucide="zap"></i> Real-time preference mapping</li>
-                        <li><i data-lucide="cpu"></i> Smart nutritional analysis</li>
-                        <li><i data-lucide="sparkles"></i> Personalized tasting menus</li>
+                        <li><i data-lucide="zap" aria-hidden="true"></i> Real-time preference mapping</li>
+                        <li><i data-lucide="cpu" aria-hidden="true"></i> Smart nutritional analysis</li>
+                        <li><i data-lucide="sparkles" aria-hidden="true"></i> Personalized tasting menus</li>
                     </ul>
                 </div>
             </div>
@@ -180,8 +180,8 @@
             <div class="section-container">
                 <div class="location-card glass">
                     <h2>Visit Us</h2>
-                    <p><i data-lucide="map-pin"></i> 777 Cyber Heights, Neo-Athens</p>
-                    <p><i data-lucide="clock"></i> 6:00 PM - 2:00 AM</p>
+                    <p><i data-lucide="map-pin" aria-hidden="true"></i> 777 Cyber Heights, Neo-Athens</p>
+                    <p><i data-lucide="clock" aria-hidden="true"></i> 6:00 PM - 2:00 AM</p>
                     <button class="btn-primary">Get Directions</button>
                 </div>
                 <div class="map-placeholder">
@@ -215,7 +215,7 @@
                 <div class="accordion-item">
                     <div class="accordion-header">
                         <h3>Do I need a reservation?</h3>
-                        <i data-lucide="plus"></i>
+                        <i data-lucide="plus" aria-hidden="true"></i>
                     </div>
                     <div class="accordion-content">
                         <p>Yes, due to our limited seating and high demand, we recommend booking at least 2 weeks in advance.</p>
@@ -224,7 +224,7 @@
                 <div class="accordion-item">
                     <div class="accordion-header">
                         <h3>What is the dress code?</h3>
-                        <i data-lucide="plus"></i>
+                        <i data-lucide="plus" aria-hidden="true"></i>
                     </div>
                     <div class="accordion-content">
                         <p>We embrace "Futuristic Chic." Think elegant, modern, and sophisticated.</p>
@@ -252,9 +252,9 @@
                 <div class="footer-social">
                     <h4>Follow Us</h4>
                     <div class="social-icons">
-                        <a href="#"><i data-lucide="instagram"></i></a>
-                        <a href="#"><i data-lucide="twitter"></i></a>
-                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Twitter"><i data-lucide="twitter" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -267,8 +267,8 @@
 
     <!-- Chatbot -->
     <div class="chatbot-container">
-        <button class="chatbot-toggle glow-pulse">
-            <i data-lucide="message-square"></i>
+        <button class="chatbot-toggle glow-pulse" aria-label="Open chat assistant" aria-expanded="false">
+            <i data-lucide="message-square" aria-hidden="true"></i>
         </button>
         <div class="chat-panel glass">
             <div class="chat-header">
@@ -276,7 +276,7 @@
                     <div class="status-dot"></div>
                     <span>Zestro AI Assistant</span>
                 </div>
-                <button class="chat-close"><i data-lucide="x"></i></button>
+                <button class="chat-close" aria-label="Close chat assistant"><i data-lucide="x" aria-hidden="true"></i></button>
             </div>
             <div class="chat-messages" id="chat-messages">
                 <div class="message ai">
@@ -291,8 +291,9 @@
                 <button class="suggestion-chip">Book Table</button>
             </div>
             <div class="chat-input">
+                <label for="user-input" class="sr-only">Ask Zestro AI</label>
                 <input type="text" id="user-input" placeholder="Ask me anything...">
-                <button id="send-btn"><i data-lucide="send"></i></button>
+                <button id="send-btn" aria-label="Send message"><i data-lucide="send" aria-hidden="true"></i></button>
             </div>
         </div>
     </div>
