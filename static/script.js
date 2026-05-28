@@ -211,11 +211,21 @@ const sendBtn = document.getElementById('send-btn');
 const typingIndicator = document.getElementById('typing-indicator');
 
 chatbotToggle.addEventListener('click', () => {
-    chatPanel.classList.toggle('active');
+    const isActive = chatPanel.classList.toggle('active');
+    chatbotToggle.setAttribute('aria-expanded', isActive);
+
+    if (isActive) {
+        // Delay focus to allow for panel transition
+        setTimeout(() => {
+            userInput.focus();
+        }, 400);
+    }
 });
 
 chatClose.addEventListener('click', () => {
     chatPanel.classList.remove('active');
+    chatbotToggle.setAttribute('aria-expanded', 'false');
+    chatbotToggle.focus();
 });
 
 async function sendMessage() {
@@ -330,6 +340,7 @@ mobileMenuToggle.addEventListener('click', () => {
 
     // Toggle between menu and x icon
     const isOpened = navLinks.classList.contains('active');
+    mobileMenuToggle.setAttribute('aria-expanded', isOpened);
     mobileMenuToggle.innerHTML = isOpened ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
     lucide.createIcons();
 
