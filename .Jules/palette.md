@@ -1,0 +1,3 @@
+## 2025-05-14 - Interactive Toggle Accessibility & Focus Management
+**Learning:** When implementing custom interactive elements like chatbots or mobile menus, using semantic `<button>` elements is crucial for keyboard accessibility. Furthermore, synchronizing the `aria-expanded` attribute with the JavaScript state ensures screen reader users understand the component's status. For components that transition into view, a small delay (e.g., 400ms) before focusing internal elements (like a chat input) prevents focus from being lost or ignored during the animation.
+**Action:** Always use `<button>` for toggles, maintain ARIA attributes in sync with JS state, and implement delayed focus for transitioning containers.
