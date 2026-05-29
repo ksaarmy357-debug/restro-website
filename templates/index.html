@@ -267,16 +267,16 @@
 
     <!-- Chatbot -->
     <div class="chatbot-container">
-        <button class="chatbot-toggle glow-pulse">
+        <button class="chatbot-toggle glow-pulse" aria-label="Open Chat Assistant" aria-expanded="false" aria-controls="chat-panel">
             <i data-lucide="message-square"></i>
         </button>
-        <div class="chat-panel glass">
+        <div class="chat-panel glass" id="chat-panel">
             <div class="chat-header">
                 <div class="ai-status">
                     <div class="status-dot"></div>
                     <span>Zestro AI Assistant</span>
                 </div>
-                <button class="chat-close"><i data-lucide="x"></i></button>
+                <button class="chat-close" aria-label="Close Chat Assistant"><i data-lucide="x"></i></button>
             </div>
             <div class="chat-messages" id="chat-messages">
                 <div class="message ai">
@@ -291,8 +291,9 @@
                 <button class="suggestion-chip">Book Table</button>
             </div>
             <div class="chat-input">
+                <label for="user-input" class="sr-only">Ask a question</label>
                 <input type="text" id="user-input" placeholder="Ask me anything...">
-                <button id="send-btn"><i data-lucide="send"></i></button>
+                <button id="send-btn" aria-label="Send message"><i data-lucide="send"></i></button>
             </div>
         </div>
     </div>
