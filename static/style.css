@@ -194,6 +194,10 @@ h1, h2, h3, .logo-text {
 .mobile-menu-toggle {
     display: none;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    color: inherit;
+    padding: 0;
 }
 
 /* Hero Section */
@@ -615,6 +619,12 @@ h1, h2, h3, .logo-text {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    color: inherit;
+    width: 100%;
+    font: inherit;
+    text-align: inherit;
 }
 
 .accordion-header h3 { font-size: 1.5rem; }
@@ -828,6 +838,13 @@ h1, h2, h3, .logo-text {
     align-items: center;
     justify-content: center;
 }
+
+/* Accessibility: Focus Visible */
+:focus-visible {
+    outline: 2px solid var(--accent-amber);
+    outline-offset: 2px;
+}
+
 
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
