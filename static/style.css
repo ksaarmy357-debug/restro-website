@@ -41,6 +41,11 @@ body {
     line-height: 1.6;
 }
 
+:focus-visible {
+    outline: 2px solid var(--accent-amber);
+    outline-offset: 4px;
+}
+
 h1, h2, h3, .logo-text {
     font-family: 'Playfair Display', serif;
 }
@@ -194,6 +199,10 @@ h1, h2, h3, .logo-text {
 .mobile-menu-toggle {
     display: none;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
 }
 
 /* Hero Section */
@@ -615,9 +624,14 @@ h1, h2, h3, .logo-text {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    width: 100%;
+    color: inherit;
+    text-align: left;
 }
 
-.accordion-header h3 { font-size: 1.5rem; }
+.accordion-header h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
 
 .accordion-content {
     max-height: 0;
