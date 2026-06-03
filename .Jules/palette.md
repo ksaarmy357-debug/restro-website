@@ -1,0 +1,3 @@
+## 2026-06-03 - [Accessibility: Converting non-semantic interactive elements]
+**Learning:** In a UI rich with animations and custom layouts (like Zestro), interactive elements are often built using `div` tags for styling convenience. However, this completely breaks keyboard and screen reader accessibility. Converting these to `<button>` elements while resetting default browser styles (`background: transparent`, `border: none`, etc.) is a low-effort, high-impact way to restore semantic meaning without affecting the visual design.
+**Action:** Always check for `div` elements with click listeners and replace them with `<button>` tags, ensuring that `:focus-visible` styles are also implemented to support keyboard users.
