@@ -196,8 +196,14 @@ accordionItems.forEach(item => {
     const header = item.querySelector('.accordion-header');
     header.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        accordionItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+        accordionItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+        });
+        if (!isActive) {
+            item.classList.add('active');
+            header.setAttribute('aria-expanded', 'true');
+        }
     });
 });
 
@@ -211,11 +217,13 @@ const sendBtn = document.getElementById('send-btn');
 const typingIndicator = document.getElementById('typing-indicator');
 
 chatbotToggle.addEventListener('click', () => {
-    chatPanel.classList.toggle('active');
+    const isActive = chatPanel.classList.toggle('active');
+    chatbotToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
 });
 
 chatClose.addEventListener('click', () => {
     chatPanel.classList.remove('active');
+    chatbotToggle.setAttribute('aria-expanded', 'false');
 });
 
 async function sendMessage() {
@@ -330,6 +338,7 @@ mobileMenuToggle.addEventListener('click', () => {
 
     // Toggle between menu and x icon
     const isOpened = navLinks.classList.contains('active');
+    mobileMenuToggle.setAttribute('aria-expanded', isOpened ? 'true' : 'false');
     mobileMenuToggle.innerHTML = isOpened ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
     lucide.createIcons();
 
