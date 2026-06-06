@@ -196,8 +196,18 @@ accordionItems.forEach(item => {
     const header = item.querySelector('.accordion-header');
     header.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        accordionItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+
+        // Close all items and update aria-expanded
+        accordionItems.forEach(i => {
+            i.classList.remove('active');
+            const h = i.querySelector('.accordion-header');
+            if (h) h.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isActive) {
+            item.classList.add('active');
+            header.setAttribute('aria-expanded', 'true');
+        }
     });
 });
 
@@ -211,11 +221,38 @@ const sendBtn = document.getElementById('send-btn');
 const typingIndicator = document.getElementById('typing-indicator');
 
 chatbotToggle.addEventListener('click', () => {
-    chatPanel.classList.toggle('active');
+    const isActive = chatPanel.classList.toggle('active');
+    chatbotToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+
+    if (isActive) {
+        setTimeout(() => {
+            userInput.focus();
+        }, 100);
+    }
 });
 
 chatClose.addEventListener('click', () => {
     chatPanel.classList.remove('active');
+    chatbotToggle.setAttribute('aria-expanded', 'false');
+    chatbotToggle.focus();
+});
+
+// Escape key to close chatbot and mobile menu
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (chatPanel.classList.contains('active')) {
+            chatPanel.classList.remove('active');
+            chatbotToggle.setAttribute('aria-expanded', 'false');
+            chatbotToggle.focus();
+        }
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.innerHTML = '<i data-lucide="menu"></i>';
+            lucide.createIcons();
+            mobileMenuToggle.focus();
+        }
+    }
 });
 
 async function sendMessage() {
@@ -330,6 +367,7 @@ mobileMenuToggle.addEventListener('click', () => {
 
     // Toggle between menu and x icon
     const isOpened = navLinks.classList.contains('active');
+    mobileMenuToggle.setAttribute('aria-expanded', isOpened ? 'true' : 'false');
     mobileMenuToggle.innerHTML = isOpened ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
     lucide.createIcons();
 

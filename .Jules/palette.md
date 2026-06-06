@@ -1,0 +1,3 @@
+## 2025-05-15 - Semantic Toggle Conversion
+**Learning:** Converting interactive `div` elements to semantic `button` elements is a significant accessibility win, but it requires careful CSS resets (background, border, font) to preserve the original visual design. Additionally, synchronizing `aria-expanded` states with JavaScript transitions is critical for screen reader users to understand the state of collapsing components that visual users perceive through animations.
+**Action:** When encountering custom-styled interactive components, always prefer `<button>` over `<div>` or `<a>` (unless navigating) and apply a standard reset class or rule to maintain design fidelity.
