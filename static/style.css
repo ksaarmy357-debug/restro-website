@@ -92,6 +92,13 @@ h1, h2, h3, .logo-text {
     box-shadow: var(--glow-shadow);
 }
 
+.chatbot-toggle:focus-visible,
+.chat-close:focus-visible,
+.suggestion-chip:focus-visible {
+    outline: 2px solid var(--accent-amber);
+    outline-offset: 4px;
+}
+
 .btn-secondary {
     padding: 12px 28px;
     background: transparent;
