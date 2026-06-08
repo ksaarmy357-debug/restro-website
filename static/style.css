@@ -41,6 +41,31 @@ body {
     line-height: 1.6;
 }
 
+:focus-visible {
+    outline: 2px solid var(--accent-amber);
+    outline-offset: 4px;
+}
+
+button.mobile-menu-toggle,
+button.accordion-header {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+button.mobile-menu-toggle {
+    width: auto;
+    display: none;
+}
+
 h1, h2, h3, .logo-text {
     font-family: 'Playfair Display', serif;
 }
@@ -191,10 +216,6 @@ h1, h2, h3, .logo-text {
     width: 100%;
 }
 
-.mobile-menu-toggle {
-    display: none;
-    cursor: pointer;
-}
 
 /* Hero Section */
 .hero-section {
@@ -813,7 +834,6 @@ h1, h2, h3, .logo-text {
     border-radius: 30px;
     padding: 12px 20px;
     color: white;
-    outline: none;
 }
 
 .chat-input button {

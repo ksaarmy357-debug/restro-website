@@ -1,0 +1,3 @@
+## 2024-05-24 - Semantic Toggles and Accessible Icons
+**Learning:** Interactive elements that toggle content (like mobile menus, accordions, and chatbots) should be semantic `<button>` elements rather than `<div>` or `<a>` tags. They must also use `aria-expanded` and `aria-controls` to communicate their state and relationship to screen readers. Icon-only buttons always require an `aria-label`.
+**Action:** Always audit interactive toggles for semantic correctness and state synchronization. Use `:focus-visible` to ensure keyboard navigation is accessible without compromising mouse-user aesthetics.
