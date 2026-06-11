@@ -196,8 +196,19 @@ accordionItems.forEach(item => {
     const header = item.querySelector('.accordion-header');
     header.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        accordionItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+
+        // Close all items
+        accordionItems.forEach(i => {
+            i.classList.remove('active');
+            const btn = i.querySelector('.accordion-header');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle clicked item
+        if (!isActive) {
+            item.classList.add('active');
+            header.setAttribute('aria-expanded', 'true');
+        }
     });
 });
 
@@ -211,11 +222,24 @@ const sendBtn = document.getElementById('send-btn');
 const typingIndicator = document.getElementById('typing-indicator');
 
 chatbotToggle.addEventListener('click', () => {
+    const isOpening = !chatPanel.classList.contains('active');
     chatPanel.classList.toggle('active');
+    if (isOpening) {
+        setTimeout(() => userInput.focus(), 100);
+    }
 });
 
 chatClose.addEventListener('click', () => {
     chatPanel.classList.remove('active');
+    chatbotToggle.focus();
+});
+
+// Close chatbot on Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatPanel && chatPanel.classList.contains('active')) {
+        chatPanel.classList.remove('active');
+        chatbotToggle.focus();
+    }
 });
 
 async function sendMessage() {
