@@ -1,0 +1,3 @@
+## 2026-06-12 - Accessible Accordion Patterns
+**Learning:** Using semantic `<button>` elements inside headings (`<h3>`) is the gold standard for accessible accordions, but it requires careful CSS resets to maintain visual parity with the original `div`-based design. Explicitly syncing `aria-expanded` and using `role="region"` with `aria-labelledby` ensures a robust experience for screen reader users.
+**Action:** Always prefer the `<h3><button>` pattern for interactive headers and ensure `aria-expanded` is updated in JavaScript alongside class toggles. Apply `width: 100%` and `text-align: left` to button resets to prevent layout shifts.
