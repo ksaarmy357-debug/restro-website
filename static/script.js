@@ -193,11 +193,21 @@ tiltCards.forEach(card => {
 // FAQ Accordion
 const accordionItems = document.querySelectorAll('.accordion-item');
 accordionItems.forEach(item => {
-    const header = item.querySelector('.accordion-header');
-    header.addEventListener('click', () => {
+    const button = item.querySelector('.accordion-header button');
+    button.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        accordionItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+
+        // Close all items
+        accordionItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.accordion-header button').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+            item.classList.add('active');
+            button.setAttribute('aria-expanded', 'true');
+        }
     });
 });
 
@@ -211,11 +221,17 @@ const sendBtn = document.getElementById('send-btn');
 const typingIndicator = document.getElementById('typing-indicator');
 
 chatbotToggle.addEventListener('click', () => {
-    chatPanel.classList.toggle('active');
+    const isActive = chatPanel.classList.toggle('active');
+    chatbotToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    if (isActive) {
+        setTimeout(() => userInput.focus(), 100);
+    }
 });
 
 chatClose.addEventListener('click', () => {
     chatPanel.classList.remove('active');
+    chatbotToggle.setAttribute('aria-expanded', 'false');
+    chatbotToggle.focus();
 });
 
 async function sendMessage() {
@@ -312,6 +328,24 @@ createParticles('.hero-bg-particles', 30);
 createParticles('.footer-particles', 20);
 
 // Navbar scroll effect
+// Global Escape Key Listener for Accessibility
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (chatPanel && chatPanel.classList.contains('active')) {
+            chatPanel.classList.remove('active');
+            chatbotToggle.setAttribute('aria-expanded', 'false');
+            chatbotToggle.focus();
+        }
+        if (navLinks && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.innerHTML = '<i data-lucide="menu"></i>';
+            lucide.createIcons();
+            mobileMenuToggle.focus();
+        }
+    }
+});
+
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -330,6 +364,7 @@ mobileMenuToggle.addEventListener('click', () => {
 
     // Toggle between menu and x icon
     const isOpened = navLinks.classList.contains('active');
+    mobileMenuToggle.setAttribute('aria-expanded', isOpened ? 'true' : 'false');
     mobileMenuToggle.innerHTML = isOpened ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
     lucide.createIcons();
 

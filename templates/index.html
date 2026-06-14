@@ -38,9 +38,9 @@
             <div class="nav-cta">
                 <button class="btn-primary glow-pulse">Book a Table</button>
             </div>
-            <div class="mobile-menu-toggle">
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-haspopup="true">
                 <i data-lucide="menu"></i>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -214,19 +214,27 @@
             <div class="accordion-container">
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <h3>Do I need a reservation?</h3>
-                        <i data-lucide="plus"></i>
+                        <h3>
+                            <button type="button" aria-expanded="false" aria-controls="faq-content-1" id="faq-button-1">
+                                Do I need a reservation?
+                                <i data-lucide="plus"></i>
+                            </button>
+                        </h3>
                     </div>
-                    <div class="accordion-content">
+                    <div class="accordion-content" id="faq-content-1" role="region" aria-labelledby="faq-button-1">
                         <p>Yes, due to our limited seating and high demand, we recommend booking at least 2 weeks in advance.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <h3>What is the dress code?</h3>
-                        <i data-lucide="plus"></i>
+                        <h3>
+                            <button type="button" aria-expanded="false" aria-controls="faq-content-2" id="faq-button-2">
+                                What is the dress code?
+                                <i data-lucide="plus"></i>
+                            </button>
+                        </h3>
                     </div>
-                    <div class="accordion-content">
+                    <div class="accordion-content" id="faq-content-2" role="region" aria-labelledby="faq-button-2">
                         <p>We embrace "Futuristic Chic." Think elegant, modern, and sophisticated.</p>
                     </div>
                 </div>
@@ -252,9 +260,9 @@
                 <div class="footer-social">
                     <h4>Follow Us</h4>
                     <div class="social-icons">
-                        <a href="#"><i data-lucide="instagram"></i></a>
-                        <a href="#"><i data-lucide="twitter"></i></a>
-                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
                     </div>
                 </div>
             </div>
@@ -267,16 +275,16 @@
 
     <!-- Chatbot -->
     <div class="chatbot-container">
-        <button class="chatbot-toggle glow-pulse">
+        <button class="chatbot-toggle glow-pulse" aria-label="Open Chatbot" aria-expanded="false" aria-haspopup="true">
             <i data-lucide="message-square"></i>
         </button>
-        <div class="chat-panel glass">
+        <div class="chat-panel glass" id="chat-panel" role="dialog" aria-labelledby="chat-title">
             <div class="chat-header">
                 <div class="ai-status">
                     <div class="status-dot"></div>
-                    <span>Zestro AI Assistant</span>
+                    <span id="chat-title">Zestro AI Assistant</span>
                 </div>
-                <button class="chat-close"><i data-lucide="x"></i></button>
+                <button class="chat-close" aria-label="Close Chatbot"><i data-lucide="x"></i></button>
             </div>
             <div class="chat-messages" id="chat-messages">
                 <div class="message ai">
