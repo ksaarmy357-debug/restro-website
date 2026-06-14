@@ -1,0 +1,3 @@
+## 2026-05-24 - Semantic Accordions and Keyboard Interactivity
+**Learning:** Converting interactive `div` elements to semantic `button` elements is the foundation of web accessibility. However, it requires careful CSS resets to maintain visual consistency. Additionally, complex overlays like chatbots or mobile menus must implement an `Escape` key listener and programmatically return focus to the triggering element to prevent "focus trapping" and maintain user context.
+**Action:** Always use `<h3><button>` for accordions and implement a global keyboard listener for overlays. Ensure `aria-expanded` and `aria-controls` are synchronized in JavaScript to provide real-time state feedback to screen readers.
