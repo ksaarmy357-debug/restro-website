@@ -615,9 +615,14 @@ h1, h2, h3, .logo-text {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    color: inherit;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1.5rem;
 }
-
-.accordion-header h3 { font-size: 1.5rem; }
 
 .accordion-content {
     max-height: 0;
@@ -781,6 +786,12 @@ h1, h2, h3, .logo-text {
     padding: 0 25px 15px;
     display: flex;
     gap: 10px;
+}
+
+/* Focus States */
+:focus-visible {
+    outline: 2px solid var(--accent-amber);
+    outline-offset: 4px;
 }
 
 .suggestion-chip {
