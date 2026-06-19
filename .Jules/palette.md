@@ -1,0 +1,3 @@
+## 2026-05-20 - Mobile Menu Accessibility Patterns
+**Learning:** Using a semantic `<button>` instead of a `div` for the mobile menu toggle is critical for keyboard and screen reader accessibility. Adding ARIA attributes (`aria-expanded`, `aria-label`, `aria-controls`) provides necessary state feedback that isn't conveyed through visual icons alone. High-contrast `:focus-visible` styles are essential to maintain visual consistency with the design system while ensuring the active element is identifiable.
+**Action:** Always prefer semantic `<button>` elements for interactive toggles and ensure ARIA states are programmatically synchronized with the UI state in JavaScript.
