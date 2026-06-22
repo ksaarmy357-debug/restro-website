@@ -196,8 +196,19 @@ accordionItems.forEach(item => {
     const header = item.querySelector('.accordion-header');
     header.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        accordionItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+
+        // Close all items and reset aria-expanded
+        accordionItems.forEach(i => {
+            i.classList.remove('active');
+            const btn = i.querySelector('.accordion-header');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked item if it wasn't already active
+        if (!isActive) {
+            item.classList.add('active');
+            header.setAttribute('aria-expanded', 'true');
+        }
     });
 });
 
