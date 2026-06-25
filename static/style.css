@@ -609,15 +609,26 @@ h1, h2, h3, .logo-text {
     border-bottom: 1px solid var(--glass-border);
 }
 
-.accordion-header {
+.accordion-header button {
+    width: 100%;
     padding: 30px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.5rem;
+    text-align: left;
 }
 
-.accordion-header h3 { font-size: 1.5rem; }
+.accordion-header button:focus-visible {
+    outline: 2px solid var(--accent-amber);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
 
 .accordion-content {
     max-height: 0;
