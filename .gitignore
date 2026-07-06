@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+flask.log
+.env
+/home/jules/verification/
+verify_ux.py
