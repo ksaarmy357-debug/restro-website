@@ -1,0 +1,3 @@
+## 2026-05-21 - Accessible Accordion Pattern
+**Learning:** In this design system, FAQ headers were originally divs with nested h3 tags. When converting to accessible buttons, nesting the button inside the h3 (<h3><button>...</button></h3>) is the correct semantic pattern. However, to maintain visual consistency, the heading-specific styles (Playfair Display font, size) must be applied directly to the button element, as buttons do not inherit these from their heading parents in a reset-heavy CSS environment.
+**Action:** When implementing accordions, always move heading typography to the interactive button and use :focus-visible for high-contrast keyboard indicators.
