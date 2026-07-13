@@ -1,0 +1,3 @@
+## 2026-05-20 - [Accessible Accordion Pattern]
+**Learning:** The correct semantic pattern for accessible accordions is `<h3><button>...</button></h3>`. Content areas must have `role="region"` and `aria-labelledby` pointing to the ID of the triggering header button. Using `:focus-visible` with `outline-offset` provides a high-contrast indicator for keyboard users while remaining invisible to mouse users.
+**Action:** Always implement accordions with this structure and ensure `aria-expanded` state is synchronized via JavaScript. Use `type="button"` on the headers to prevent form submission side-effects.
