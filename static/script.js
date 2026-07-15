@@ -193,11 +193,24 @@ tiltCards.forEach(card => {
 // FAQ Accordion
 const accordionItems = document.querySelectorAll('.accordion-item');
 accordionItems.forEach(item => {
-    const header = item.querySelector('.accordion-header');
-    header.addEventListener('click', () => {
+    const btn = item.querySelector('.accordion-header button');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        accordionItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+
+        // Close all items and update aria-expanded
+        accordionItems.forEach(i => {
+            i.classList.remove('active');
+            const itemBtn = i.querySelector('.accordion-header button');
+            if (itemBtn) itemBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        // If the clicked item wasn't active, open it
+        if (!isActive) {
+            item.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+        }
     });
 });
 
