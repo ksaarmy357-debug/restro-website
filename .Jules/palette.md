@@ -1,0 +1,3 @@
+## 2026-07-16 - Accessible Accordion Pattern for Zestro
+**Learning:** When implementing accessible accordions in a design system that uses heading-specific styles (like Playfair Display at 1.5rem), moving the header tag inside a button is invalid HTML. The correct semantic pattern is '<h3><button>...</button></h3>', but this requires explicitly resetting the button's background, border, and text alignment while inheriting the heading's typography to maintain visual consistency.
+**Action:** Always wrap accordion toggle buttons in an appropriate heading level and consolidate typography styles onto the button itself to ensure both semantic correctness and visual fidelity.
