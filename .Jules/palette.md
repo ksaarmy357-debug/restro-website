@@ -1,0 +1,3 @@
+## 2026-07-22 - Accessible Single-Open Accordion Keyboard Navigation
+**Learning:** Transitioning interactive components like FAQ accordions from generic `div` triggers to semantic `<h3><button>` patterns dramatically improves screen reader and keyboard accessibility, but requires moving heading typography to the interactive button, ensuring sibling states are programmatically synchronized using explicit string values for ARIA booleans, and adding robust focus-visible styles.
+**Action:** When implementing accordions, always wrap the toggle button in a heading tag (e.g. `<h3><button>`), associate it with the content area using `aria-controls` / `aria-labelledby`, explicitly set `type="button"`, and transition both `i` and `svg` to support dynamic Lucide icon generation.
