@@ -1,0 +1,3 @@
+## 2026-07-23 - Dynamic Icon Replacement and Accessible Accordion Transitions
+**Learning:** Third-party icon libraries like Lucide dynamically replace standard `<i>` tags with `<svg>` elements on rendering. CSS transition selectors animating icon states (e.g. rotation inside active accordion headers) must target both tag selectors (e.g. `.accordion-header i, .accordion-header svg`) to ensure visual continuity. Additionally, correct HTML semantics require nesting buttons inside headings (e.g. `<h3><button>...</button></h3>`), not heading tags inside buttons.
+**Action:** When designing interactive headers with toggles or icons in this design system, always style both `i` and `svg` child elements, and construct the interactive header with buttons inside heading elements.
