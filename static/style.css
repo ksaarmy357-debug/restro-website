@@ -615,9 +615,24 @@ h1, h2, h3, .logo-text {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    color: inherit;
+    width: 100%;
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
 }
 
-.accordion-header h3 { font-size: 1.5rem; }
+.accordion-header:focus-visible {
+    outline: 2px solid var(--accent-amber) !important;
+    outline-offset: 4px;
+}
+
+.accordion-header i,
+.accordion-header svg {
+    transition: transform 0.3s ease;
+}
 
 .accordion-content {
     max-height: 0;
@@ -631,7 +646,8 @@ h1, h2, h3, .logo-text {
     max-height: 200px;
 }
 
-.accordion-item.active i {
+.accordion-item.active .accordion-header i,
+.accordion-item.active .accordion-header svg {
     transform: rotate(45deg);
 }
 
