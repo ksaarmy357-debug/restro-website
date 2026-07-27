@@ -194,10 +194,24 @@ tiltCards.forEach(card => {
 const accordionItems = document.querySelectorAll('.accordion-item');
 accordionItems.forEach(item => {
     const header = item.querySelector('.accordion-header');
+    if (!header) return;
     header.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        accordionItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+
+        // Collapse all panels and reset aria-expanded to 'false'
+        accordionItems.forEach(i => {
+            i.classList.remove('active');
+            const btn = i.querySelector('.accordion-header');
+            if (btn) {
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Expand the clicked panel if it wasn't already active
+        if (!isActive) {
+            item.classList.add('active');
+            header.setAttribute('aria-expanded', 'true');
+        }
     });
 });
 
