@@ -1,0 +1,3 @@
+## 2026-07-27 - Designing Accessible Accordions inside Custom-Cursor based Design Systems
+**Learning:** In design systems featuring custom cursor indicators with `mix-blend-mode: difference`, focus indicators can easily become visually obscured or unnoticeable. Elevating accessibility requires high-contrast focus outlines using `:focus-visible` and an outline offset. Additionally, transitioning icons require targeting both `i` and `svg` selectors since dynamic CDN libraries like Lucide replace target tags dynamically.
+**Action:** Always implement a high-contrast focus ring with outline-offset for keyboard navigation, and ensure dynamic SVG icons are properly transitioned alongside their original container markup.
