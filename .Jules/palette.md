@@ -1,0 +1,3 @@
+## 2026-03-31 - Button-Based Accordions for High-Contrast Keyboard Navigation
+**Learning:** Transitioning FAQ or list headers from general div elements to semantic button elements dramatically improves accessibility and keyboard navigation. Using a dedicated `:focus-visible` outline that contrasts clearly with the application's dark aesthetic and custom cursor guarantees visual readability for screen reader and keyboard-only users.
+**Action:** When creating accordion or collapsible components, wrap trigger buttons in semantic headings (e.g. `<h3><button>`) and synchronize state changes explicitly with the 'aria-expanded' property to prevent screen readers from announcing outdated UI states.
