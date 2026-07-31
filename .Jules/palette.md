@@ -1,0 +1,3 @@
+## 2026-07-31 - FAQ Accordion Accessibility & Semantics
+**Learning:** Non-semantic containers (like `div`) used for accordions block keyboard users and screen readers entirely. Wrapping headers in native `button` elements nested in `<h3>` provides instant keyboard, screen reader, and search engine friendliness. Moving heading typography directly to the button maintains the visual hierarchy without compromising HTML semantics.
+**Action:** Always use `<h3><button type="button">...</button></h3>` for accordion triggers, explicit ARIA attributes, and ensure heading-level font styles are declared on the interactive button element itself.
