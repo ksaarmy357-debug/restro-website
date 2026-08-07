@@ -1,0 +1,3 @@
+## 2026-08-07 - Accessible Accordion Heading Pattern
+**Learning:** Placing headings inside interactive button elements (or vice versa) must be done semantically. The correct pattern is `<h3><button>...</button></h3>` to ensure the accordion toggle is correctly interpreted by screen readers. Moving visual heading styles like font-size and family to the interactive button button keeps visual design identical while preserving semantic navigation.
+**Action:** Always use the `<h3><button type="button">...</button></h3>` markup for accordions and apply appropriate text styles to the button to maintain visual hierarchy.
