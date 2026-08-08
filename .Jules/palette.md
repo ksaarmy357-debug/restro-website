@@ -1,0 +1,5 @@
+# Palette UX Journal
+
+## 2026-03-08 - Accessible Accordion Headers and Heading Buttons
+**Learning:** Placing a heading inside a `<button>` tag violates HTML structure standards and causes rendering/accessibility issues. Wrapping the `<button>` inside standard `<h3>` headings keeps the structure valid, and moving heading-specific styles (like Playfair Display, 1.5rem, etc.) directly to the button ensures the interactive element matches the design system perfectly. Also, targeting both `i` and `svg` selectors is critical since dynamic icon libraries like Lucide replace `<i>` tags with `<svg>` elements, so simple CSS transitions would otherwise fail on rotation.
+**Action:** Always wrap the `<button>` inside headings (e.g. `<h3><button>...</button></h3>`) rather than nesting headings inside buttons, style the button explicitly with the heading font/size and keyboard focus outlines, and target both `i` and `svg` for states like `.accordion-item.active .accordion-header i, .accordion-item.active .accordion-header svg`.
