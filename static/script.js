@@ -211,11 +211,27 @@ const sendBtn = document.getElementById('send-btn');
 const typingIndicator = document.getElementById('typing-indicator');
 
 chatbotToggle.addEventListener('click', () => {
-    chatPanel.classList.toggle('active');
+    const isActive = chatPanel.classList.toggle('active');
+    chatbotToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    if (isActive && userInput) {
+        setTimeout(() => userInput.focus(), 100);
+    }
 });
 
-chatClose.addEventListener('click', () => {
-    chatPanel.classList.remove('active');
+function closeChatPanel() {
+    if (chatPanel.classList.contains('active')) {
+        chatPanel.classList.remove('active');
+        chatbotToggle.setAttribute('aria-expanded', 'false');
+        chatbotToggle.focus();
+    }
+}
+
+chatClose.addEventListener('click', closeChatPanel);
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatPanel && chatPanel.classList.contains('active')) {
+        closeChatPanel();
+    }
 });
 
 async function sendMessage() {
