@@ -267,16 +267,16 @@
 
     <!-- Chatbot -->
     <div class="chatbot-container">
-        <button class="chatbot-toggle glow-pulse">
-            <i data-lucide="message-square"></i>
+        <button type="button" class="chatbot-toggle glow-pulse" aria-label="Toggle Zestro AI Assistant chat" aria-expanded="false" aria-controls="chat-panel" aria-haspopup="true">
+            <i data-lucide="message-square" aria-hidden="true"></i>
         </button>
-        <div class="chat-panel glass">
+        <div class="chat-panel glass" id="chat-panel">
             <div class="chat-header">
                 <div class="ai-status">
                     <div class="status-dot"></div>
                     <span>Zestro AI Assistant</span>
                 </div>
-                <button class="chat-close"><i data-lucide="x"></i></button>
+                <button type="button" class="chat-close" aria-label="Close chat"><i data-lucide="x" aria-hidden="true"></i></button>
             </div>
             <div class="chat-messages" id="chat-messages">
                 <div class="message ai">
@@ -287,12 +287,12 @@
                 <span></span><span></span><span></span>
             </div>
             <div class="chat-suggestions">
-                <button class="suggestion-chip">View Menu</button>
-                <button class="suggestion-chip">Book Table</button>
+                <button type="button" class="suggestion-chip">View Menu</button>
+                <button type="button" class="suggestion-chip">Book Table</button>
             </div>
             <div class="chat-input">
-                <input type="text" id="user-input" placeholder="Ask me anything...">
-                <button id="send-btn"><i data-lucide="send"></i></button>
+                <input type="text" id="user-input" placeholder="Ask me anything..." aria-label="Chat message">
+                <button type="button" id="send-btn" aria-label="Send message"><i data-lucide="send" aria-hidden="true"></i></button>
             </div>
         </div>
     </div>

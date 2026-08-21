@@ -1,0 +1,3 @@
+## 2026-08-21 - Transitioning Overlay Focus Management & Escape Key Dismissal
+**Learning:** Animated overlay components (such as floating chatbot panels) can fail to receive focus immediately upon toggle if CSS transitions are in progress, and without keyboard handlers (e.g. Escape key) screen reader/keyboard users get trapped or disoriented.
+**Action:** Use a short delay (`setTimeout(..., 100)`) when focusing elements inside transitioning containers, update `aria-expanded` as explicit strings ('true'/'false'), and attach an Escape key listener to close the overlay and return focus to the toggle button.
