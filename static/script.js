@@ -330,6 +330,7 @@ mobileMenuToggle.addEventListener('click', () => {
 
     // Toggle between menu and x icon
     const isOpened = navLinks.classList.contains('active');
+    mobileMenuToggle.setAttribute('aria-expanded', isOpened ? 'true' : 'false');
     mobileMenuToggle.innerHTML = isOpened ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
     lucide.createIcons();
 
