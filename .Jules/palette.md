@@ -1,0 +1,3 @@
+## 2026-08-24 - Chatbot Overlay Accessibility & Focus Management
+**Learning:** Interactive overlay widgets and floating dialogs need explicit ARIA state linkage (`aria-expanded`, `aria-controls`, `aria-haspopup="dialog"`) and keyboard trap management. In transitioning panels, a slight delay (100ms) before focusing input elements ensures smooth keyboard navigation without layout disruption.
+**Action:** Always pair overlay toggle buttons with dynamic ARIA attribute updates, auto-focus active input fields on open, restore focus to the trigger button on close, and implement an Escape key listener.
