@@ -210,12 +210,45 @@ const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
 const typingIndicator = document.getElementById('typing-indicator');
 
-chatbotToggle.addEventListener('click', () => {
-    chatPanel.classList.toggle('active');
-});
+function openChatPanel() {
+    if (!chatPanel) return;
+    chatPanel.classList.add('active');
+    if (chatbotToggle) chatbotToggle.setAttribute('aria-expanded', 'true');
+    chatPanel.setAttribute('aria-hidden', 'false');
+    if (userInput) {
+        setTimeout(() => userInput.focus(), 100);
+    }
+}
 
-chatClose.addEventListener('click', () => {
+function closeChatPanel() {
+    if (!chatPanel) return;
     chatPanel.classList.remove('active');
+    if (chatbotToggle) {
+        chatbotToggle.setAttribute('aria-expanded', 'false');
+        chatbotToggle.focus();
+    }
+    chatPanel.setAttribute('aria-hidden', 'true');
+}
+
+if (chatbotToggle) {
+    chatbotToggle.addEventListener('click', () => {
+        const isActive = chatPanel && chatPanel.classList.contains('active');
+        if (isActive) {
+            closeChatPanel();
+        } else {
+            openChatPanel();
+        }
+    });
+}
+
+if (chatClose) {
+    chatClose.addEventListener('click', closeChatPanel);
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatPanel && chatPanel.classList.contains('active')) {
+        closeChatPanel();
+    }
 });
 
 async function sendMessage() {
