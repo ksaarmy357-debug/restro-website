@@ -308,6 +308,16 @@ h1, h2, h3, .logo-text {
     justify-content: center;
 }
 
+/* Chatbot Focus Styles */
+.chatbot-toggle:focus-visible,
+.chat-close:focus-visible,
+.suggestion-chip:focus-visible,
+.chat-input input:focus-visible,
+.chat-input button:focus-visible {
+    outline: 2px solid var(--accent-amber) !important;
+    outline-offset: 3px;
+}
+
 .hologram-orb {
     width: 300px;
     height: 300px;
