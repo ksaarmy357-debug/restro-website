@@ -210,12 +210,42 @@ const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
 const typingIndicator = document.getElementById('typing-indicator');
 
-chatbotToggle.addEventListener('click', () => {
-    chatPanel.classList.toggle('active');
-});
+function openChat() {
+    if (!chatPanel || !chatbotToggle) return;
+    chatPanel.classList.add('active');
+    chatbotToggle.setAttribute('aria-expanded', 'true');
+    chatbotToggle.setAttribute('aria-label', 'Close AI assistant chat');
+    if (userInput) {
+        setTimeout(() => userInput.focus(), 100);
+    }
+}
 
-chatClose.addEventListener('click', () => {
+function closeChat() {
+    if (!chatPanel || !chatbotToggle) return;
     chatPanel.classList.remove('active');
+    chatbotToggle.setAttribute('aria-expanded', 'false');
+    chatbotToggle.setAttribute('aria-label', 'Open AI assistant chat');
+    chatbotToggle.focus();
+}
+
+if (chatbotToggle) {
+    chatbotToggle.addEventListener('click', () => {
+        if (chatPanel.classList.contains('active')) {
+            closeChat();
+        } else {
+            openChat();
+        }
+    });
+}
+
+if (chatClose) {
+    chatClose.addEventListener('click', closeChat);
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatPanel && chatPanel.classList.contains('active')) {
+        closeChat();
+    }
 });
 
 async function sendMessage() {
