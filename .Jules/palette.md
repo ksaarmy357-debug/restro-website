@@ -1,0 +1,3 @@
+## 2026-09-07 - Chatbot Overlay Accessibility & Focus Management
+**Learning:** Animated overlay panels and dialogs (such as chatbot UI widgets) require explicit ARIA role declarations (`role="dialog"`), live `aria-expanded` updates on trigger controls, input auto-focus with a small delay for CSS transitions, focus restoration upon closing, and `Escape` key dismissal to be accessible to keyboard and screen reader users.
+**Action:** Always pair overlay toggle buttons with `aria-haspopup="true"`, `aria-controls`, and `aria-expanded="true"|"false"` string attributes, auto-focus the primary input on open after a short timeout (e.g. 100ms), and restore focus to the trigger button when dismissed via click or `Escape`.
