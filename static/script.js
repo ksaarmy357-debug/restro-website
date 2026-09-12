@@ -210,12 +210,42 @@ const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
 const typingIndicator = document.getElementById('typing-indicator');
 
-chatbotToggle.addEventListener('click', () => {
-    chatPanel.classList.toggle('active');
-});
+function openChat() {
+    if (!chatPanel) return;
+    chatPanel.classList.add('active');
+    if (chatbotToggle) chatbotToggle.setAttribute('aria-expanded', 'true');
+    setTimeout(() => {
+        if (userInput) userInput.focus();
+    }, 100);
+}
 
-chatClose.addEventListener('click', () => {
+function closeChat() {
+    if (!chatPanel) return;
     chatPanel.classList.remove('active');
+    if (chatbotToggle) {
+        chatbotToggle.setAttribute('aria-expanded', 'false');
+        chatbotToggle.focus();
+    }
+}
+
+if (chatbotToggle) {
+    chatbotToggle.addEventListener('click', () => {
+        if (chatPanel.classList.contains('active')) {
+            closeChat();
+        } else {
+            openChat();
+        }
+    });
+}
+
+if (chatClose) {
+    chatClose.addEventListener('click', closeChat);
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatPanel && chatPanel.classList.contains('active')) {
+        closeChat();
+    }
 });
 
 async function sendMessage() {
