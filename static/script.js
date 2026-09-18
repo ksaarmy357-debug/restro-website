@@ -330,7 +330,8 @@ mobileMenuToggle.addEventListener('click', () => {
 
     // Toggle between menu and x icon
     const isOpened = navLinks.classList.contains('active');
-    mobileMenuToggle.innerHTML = isOpened ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
+    mobileMenuToggle.setAttribute('aria-expanded', isOpened ? 'true' : 'false');
+    mobileMenuToggle.innerHTML = isOpened ? '<i data-lucide="x" aria-hidden="true"></i>' : '<i data-lucide="menu" aria-hidden="true"></i>';
     lucide.createIcons();
 
     if (isOpened) {
@@ -341,5 +342,18 @@ mobileMenuToggle.addEventListener('click', () => {
             duration: 0.4,
             ease: "power2.out"
         });
+    }
+});
+
+// Close mobile menu on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        if (mobileMenuToggle) {
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.innerHTML = '<i data-lucide="menu" aria-hidden="true"></i>';
+            lucide.createIcons();
+            mobileMenuToggle.focus();
+        }
     }
 });
