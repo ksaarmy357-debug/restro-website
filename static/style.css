@@ -193,7 +193,17 @@ h1, h2, h3, .logo-text {
 
 .mobile-menu-toggle {
     display: none;
+    background: transparent;
+    border: none;
+    color: inherit;
+    padding: 0;
     cursor: pointer;
+}
+
+.mobile-menu-toggle:focus-visible {
+    outline: 2px solid var(--accent-amber) !important;
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 /* Hero Section */
