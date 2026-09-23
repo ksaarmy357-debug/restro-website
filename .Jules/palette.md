@@ -1,0 +1,3 @@
+## 2026-09-23 - Focus Management in Transitioning Dialog Overlays
+**Learning:** When expanding interactive overlays/dialogs with CSS scale/opacity transitions (like the AI assistant panel), setting focus immediately on click can fail or trigger visual jumps. Adding a small timeout (~100ms) ensures the target input element is rendered/visible and ready to receive focus smoothly.
+**Action:** Always wrap `.focus()` calls in a slight delay (`setTimeout`) when triggering focus on elements inside CSS-transitioned container overlays, and manage `Escape` key listeners to return focus to the trigger button.
