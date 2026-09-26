@@ -1,0 +1,3 @@
+## 2026-03-31 - Accessible FAQ Accordion Pattern & SVG Icon Rotation Styling
+**Learning:** Replacing `div` accordion headers with semantic `<h3><button type="button">` triggers enables native keyboard focus and screen reader operation. Because dynamic icon libraries like Lucide convert `<i>` tags into `<svg>` elements on initialization, CSS selectors that animate icon states (such as CSS rotations on active states) must target both `i` and `svg` selectors (`.accordion-header i, .accordion-header svg`) to work consistently.
+**Action:** Always wrap accordion triggers in semantic heading tags with `type="button"`, manage `aria-expanded` and `aria-controls` states via JavaScript, and ensure icon transition CSS selectors target both `i` and `svg` tags.
