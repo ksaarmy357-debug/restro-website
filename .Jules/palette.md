@@ -1,0 +1,3 @@
+## 2026-09-27 - Accessible Accordion Headers & Focus Indicators
+**Learning:** Replacing non-interactive accordion `div` headers with `<h3><button>` elements provides full keyboard accessibility and screen reader support (`aria-expanded`, `aria-controls`), but requires explicit CSS resets and moving font styles to the `button` element to preserve visual hierarchy.
+**Action:** When converting interactive `div` elements to semantic `<button>` elements, reset button defaults (`background: transparent`, `border: none`, `width: 100%`) and include `:focus-visible` outline styles with high-contrast offsets.
