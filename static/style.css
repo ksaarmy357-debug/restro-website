@@ -695,6 +695,15 @@ h1, h2, h3, .logo-text {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
+.chatbot-toggle:focus-visible,
+.chat-close:focus-visible,
+.chat-input input:focus-visible,
+.chat-input button:focus-visible,
+.suggestion-chip:focus-visible {
+    outline: 2px solid var(--accent-amber) !important;
+    outline-offset: 4px !important;
+}
+
 .chat-panel {
     position: absolute;
     bottom: 80px;
