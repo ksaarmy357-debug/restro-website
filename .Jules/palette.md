@@ -1,0 +1,3 @@
+## 2026-10-01 - Accordion Button Semantics & Focus Visibility
+**Learning:** Replacing un-clickable `div` accordion headers with semantic `button` elements inside `h3` heading tags drastically improves keyboard accessibility and screen reader support, provided typography styles are applied directly to the button element and focus indicators use `!important` to remain visible over custom blend mode cursors.
+**Action:** Always wrap `button` inside `h3` (not vice versa) for accordions, transfer heading font styles to the button reset CSS block, and synchronize `aria-expanded` attributes ("true"/"false") in toggle logic.
