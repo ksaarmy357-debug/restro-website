@@ -1,0 +1,3 @@
+## 2026-10-06 - Chatbot Widget ARIA & Focus Management Pattern
+**Learning:** Floating interactive widgets (like AI chatbot panels) require explicit `role="dialog"`, `aria-haspopup="true"`, and `aria-expanded` attributes on trigger buttons, along with automated focus trapping/shifting to the input upon expand and returning focus to the trigger button on collapse or `Escape` key press.
+**Action:** When making floating overlay components accessible, synchronize `aria-expanded` as explicit `'true'` / `'false'` strings, shift focus to the primary input after transition delay, and handle the `Escape` key to return focus to the trigger button.
