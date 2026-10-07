@@ -1,0 +1,3 @@
+## 2026-10-07 - Chatbot Overlay Accessibility & Keyboard Navigation
+**Learning:** Interactive floating overlays like chatbot panels need programmatic focus management (`setTimeout` for input focus on open, returning focus to toggle button on close) and full ARIA markup (`aria-expanded`, `aria-controls`, `aria-haspopup`) to ensure standard screen reader compatibility and seamless keyboard navigation (`Escape` key dismiss).
+**Action:** When implementing or enhancing overlay panels/modals, always ensure `Escape` closes the panel, focus transitions to the primary input on expand, and focus returns to the launcher button on dismiss.
