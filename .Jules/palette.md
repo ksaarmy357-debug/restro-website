@@ -1,0 +1,3 @@
+## 2026-03-29 - Semantic FAQ Accordion & Focus Visibility
+**Learning:** Replacing un-focusable `div` headers with semantic `<h3><button>` elements in accordion structures requires explicitly carrying over typographic hierarchy (`font-family: Playfair Display`, `font-size`) to the `<button>` element itself. Additionally, using `outline-offset: 4px` on focus-visible states ensures keyboard navigation remains clearly visible over dark background aesthetics.
+**Action:** Always wrap accordion headers with native `<button type="button">` inside `<h3>`, transfer header font styles directly to the button, and add explicit `:focus-visible` outline styles with offset.
