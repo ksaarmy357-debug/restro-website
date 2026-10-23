@@ -325,21 +325,35 @@ window.addEventListener('scroll', () => {
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
-mobileMenuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+if (mobileMenuToggle && navLinks) {
+    mobileMenuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
 
-    // Toggle between menu and x icon
-    const isOpened = navLinks.classList.contains('active');
-    mobileMenuToggle.innerHTML = isOpened ? '<i data-lucide="x"></i>' : '<i data-lucide="menu"></i>';
-    lucide.createIcons();
+        // Toggle between menu and x icon
+        const isOpened = navLinks.classList.contains('active');
+        mobileMenuToggle.setAttribute('aria-expanded', isOpened ? 'true' : 'false');
+        mobileMenuToggle.innerHTML = isOpened ? '<i data-lucide="x" aria-hidden="true"></i>' : '<i data-lucide="menu" aria-hidden="true"></i>';
+        lucide.createIcons();
 
-    if (isOpened) {
-        gsap.from('.nav-links li', {
-            x: 50,
-            opacity: 0,
-            stagger: 0.1,
-            duration: 0.4,
-            ease: "power2.out"
-        });
-    }
-});
+        if (isOpened) {
+            gsap.from('.nav-links li', {
+                x: 50,
+                opacity: 0,
+                stagger: 0.1,
+                duration: 0.4,
+                ease: "power2.out"
+            });
+        }
+    });
+
+    // Close mobile menu on Escape key press
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.innerHTML = '<i data-lucide="menu" aria-hidden="true"></i>';
+            lucide.createIcons();
+            mobileMenuToggle.focus();
+        }
+    });
+}
