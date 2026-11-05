@@ -1,0 +1,3 @@
+## 2026-03-30 - Accessible Accordion Heading and Focus Structure
+**Learning:** In design systems featuring custom cursor blend modes and dark backgrounds, replacing plain div headers with standard `<h3><button>` wrappers requires moving font and layout properties to the `<button>` element and applying high-contrast focus outlines with `!important` to prevent the cursor or dark theme from obscuring keyboard focus indicators.
+**Action:** When converting accordion headers to accessible buttons, always inherit typography on the button and use `var(--accent-amber)` with `outline-offset: 4px` on `:focus-visible`.
