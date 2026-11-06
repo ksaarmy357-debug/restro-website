@@ -1,0 +1,3 @@
+## 2026-03-30 - Chatbot Focus Management & Keyboard Dismissal
+**Learning:** Floating dialogs and popovers (like fixed AI chatbot widgets) leave keyboard and screen reader users trapped or disoriented if focus is not transferred into the panel upon opening or restored to the trigger button upon closing. Additionally, custom cursor styles with mix-blend-mode require high-contrast focus outlines with explicit offsets to remain legible.
+**Action:** When creating or enhancing floating modal/dialog components, pair `role="dialog"` and `aria-expanded` synchronization with 100ms delayed `.focus()` on the primary input and an `Escape` key listener that programmatically returns focus to the trigger button.
