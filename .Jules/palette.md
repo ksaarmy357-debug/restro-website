@@ -1,0 +1,3 @@
+## 2026-11-10 - Accessible Single-Open FAQ Accordion Pattern
+**Learning:** Replacing non-semantic click `div`s with semantic `<h3><button type="button">` disclosure triggers requires explicitly transferring typography styling to the button, syncing `aria-expanded` attributes across sibling items during single-open interactions, and styling `:focus-visible` with high-contrast outlines to prevent the custom blend-mode cursor from obscuring native focus rings.
+**Action:** Always structure accordions with heading-wrapped buttons linked to region containers via `aria-controls` and `aria-labelledby`, ensure icon rotation selectors target dynamically replaced SVG elements, and maintain ARIA boolean attributes as string literals.
